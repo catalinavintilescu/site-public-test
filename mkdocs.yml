@@ -1,0 +1,119 @@
+site_name: "Site public test"
+repo_name: site-public-test
+repo_url: https://github.com/catalinavintilescu/site-public-test
+docs_dir: doc
+edit_uri: blob/main/doc/
+copyright: 'Copyright &copy; 2026 MAI-DGCTI <br/>Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>'
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+  - content.code.copy
+  - content.action.view
+  - navigation.expand
+  - navigation.indexes
+  - navigation.instant
+  - navigation.instant.prefetch
+  - navigation.path
+  - navigation.sections
+  - navigation.top
+  - navigation.tracking
+  - search.highlight
+  - search.suggest
+  - toc.follow 
+  - toc.integrate
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: plantuml
+          class: plantuml
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+extra_css:
+  - stylesheets/extra.css
+extra:
+  version:
+    provider: mike
+#the next line allows for better offline-readable version, adds .html for every release
+use_directory_urls: false
+plugins:
+    - mike:
+        alias_type: symlink
+        redirect_template: null
+        deploy_prefix: ''
+        canonical_version: null
+        version_selector: true
+        css_dir: css
+        javascript_dir: js
+    - plantuml:
+        puml_url: !ENV [PUML_URL, 'https://www.plantuml.com/plantuml']
+        puml_keyword: plantuml
+        verify_ssl: false
+        interaction:
+          enabled: false
+        theme:
+          enabled: false
+        cache:
+          backend: local
+          local:
+            path: ".cache/mkdocs_puml"
+    - offline
+    - search
+    - glightbox
+    - privacy
+
+nav:
+  - Home:
+    - "index.md"
+    - "architecture-concept/table-of-content.md"
+    - "architecture-concept/release-notes.md"
+  - 1. Scope: "architecture-concept/01-scope/01-scope.md"
+  
