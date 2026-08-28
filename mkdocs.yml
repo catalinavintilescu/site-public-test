@@ -80,6 +80,7 @@ markdown_extensions:
 extra_css:
   - stylesheets/extra.css
 extra:
+  generator: false
   version:
     provider: mike
 #the next line allows for better offline-readable version, adds .html for every release
